@@ -1,0 +1,22 @@
+<!-- -->
+<p>Dear {{ user.username }},</p>
+
+<p>Welcome to <b>Flasky</b>!</p>
+
+<!-- notice the url_for -->
+<p>To confirm your account please <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">click here</a>.</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+
+<!-- if token = 'abc' -->
+<!-- then url_for will return: -->
+<!-- /auth/confirm/abc -->
+<!-- _external=True, will give us an absolute url-->
+
+<!-- this will find the blueprint: auth.route('\confirm\<token>')-->
+<!-- see auth/views.py confirm() with '/confirm/<token>' -->
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+
+
+<p>Sincerely,</p>
+<p>The Flasky Team</p>
+<p><small>Note: replies to this email address are not monitored.</small></p>

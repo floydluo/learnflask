@@ -1,0 +1,32 @@
+<!-- -->
+<!-- base.html need new navigation bar here, see /templates/base.html-->
+{% extends "base.html" %}
+<!-- using wtf.quick_form() macro -->
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- title -->
+{% block title %}Flasky - Login{% endblock %}
+
+
+<!-- page_content -->
+{% block page_content %}
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+
+<div class="col-md-4">
+    <!-- using wtf.quick_form() macro -->
+    <!-- form comes from login() function -->
+    {{ wtf.quick_form(form) }}
+
+    <br>
+
+
+
+    <p>Forgot your password? <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset it</a>.</p>
+
+
+    <!-- link to registration -->
+    <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+</div>
+{% endblock %}
